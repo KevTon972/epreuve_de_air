@@ -4,21 +4,23 @@ import sys
 import re
 
 def ma_fonction(arg):
-    
-    liste = []
+    try:
+        liste = []
+        arg2 = arg[0:-1]
+        arg= re.sub('[\W]', '', arg[-1]) 
 
-    for i in arg2:
-        i = re.sub('[\W]', '', i) 
-        liste.append(i)
+        for i in arg2:
+            i = re.sub('[\W]', '', i) 
+            liste.append(i)
 
-    indx = liste.index(arg)
+        indx = liste.index(arg)
 
 
-    print(" ".join(liste[0:indx]))
-    print(" " + " ".join(liste[indx+1:]))
+        print(" ".join(liste[0:indx]))
+        print(" " + " ".join(liste[indx+1:]))
+    except:
+        print("error")
 
 arg = sys.argv[1:]
-arg2 = arg[0:-1]
-arg= re.sub('[\W]', '', arg[-1]) 
 
 ma_fonction(arg)
