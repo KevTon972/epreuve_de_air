@@ -3,20 +3,22 @@
 import sys
 import re
 
-def my_fonction(arg):
+def my_fonction(argu, string_separateur):
     try:
-        arg2 = re.sub('\W', '', arg[-2]) + re.sub('\W', '', arg[-1])
-        arg = arg[:-2]
+        string_separateur = re.sub('\W', '', argu[-2]) + re.sub('\W', '', argu[-1])                     # retirer les guillemets pour recuperer "espace"
+        argu = argu[:-2]
         liste = []
 
-        for i in arg:
-            i = re.sub('\W', '', i) 
+        for i in argu:
+            i = re.sub('\W', '', i)                                                                     # retirer les guillemets de argu
             liste.append(i)
 
 
-        print(liste[0],arg2,liste[1],arg2,liste[2],arg2,liste[3])
+        print(liste[0]+string_separateur,liste[1]+string_separateur,liste[2]+string_separateur,liste[3])# concatener les elements de la liste avec "l'espace"
     except:
-        print("error.")
+        print("ajouter un separateur")
 
 arg = sys.argv[1:]
-my_fonction(arg)
+separateur = arg[-2:]
+
+my_fonction(arg, separateur)
