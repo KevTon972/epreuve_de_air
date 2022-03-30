@@ -3,18 +3,17 @@
 
 import sys
 
-def trouver_intrus(arg):
-    
-    for i in arg:
-        resultat = arg.count(i)
-        
+def trouver_intrus(liste):
+
+    for i in liste:
+        resultat = liste.count(i)
+
         if resultat == 1:
             print(i)
     
-
 arg = sys.argv[1:]
 
 if len(arg) <= 1:
-    print("error.")
+    print("error")
 
 trouver_intrus(arg)
