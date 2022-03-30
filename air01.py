@@ -3,17 +3,17 @@
 import sys
 import re
 
-def ma_fonction(arg):
+def ma_fonction(argu, separateur):
     try:
         liste = []
-        arg2 = arg[0:-1]
-        arg= re.sub('[\W]', '', arg[-1]) 
+        argu2 = argu[0:-1]
+        separateur= re.sub('\W', '', argu[-1])  #retirer les guillemets du separateur
 
-        for i in arg2:
-            i = re.sub('[\W]', '', i) 
+        for i in argu2:
+            i = re.sub('\W', '', i)             #retirer les guillemets des elements de argu2
             liste.append(i)
 
-        indx = liste.index(arg)
+        indx = liste.index(separateur)
 
 
         print(" ".join(liste[0:indx]))
@@ -23,4 +23,4 @@ def ma_fonction(arg):
 
 arg = sys.argv[1:]
 
-ma_fonction(arg)
+ma_fonction(arg, arg[-1])
